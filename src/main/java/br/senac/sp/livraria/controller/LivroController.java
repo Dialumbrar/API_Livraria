@@ -14,7 +14,6 @@ public class LivroController {
 
     private final LivroService livroService;
 
-    // Construtor estruturado para injetar as regras de negócio vindas do Service
     public LivroController(LivroService livroService) {
         this.livroService = livroService;
     }
@@ -26,13 +25,12 @@ public class LivroController {
         return ResponseEntity.status(201).body(novoLivro);
     }
 
-    // Retorna todos os registros armazenados de uma vez no corpo da resposta
     @GetMapping
     public ResponseEntity<List<Livro>> listarLivros() {
         return ResponseEntity.ok(livroService.listarLivros());
     }
 
-    // INTELLIJ: Desativa o alerta visual de erro ortográfico na palavra 'codigo'
+    // Desativa o alerta visual de erro na palavra 'codigo'
     @SuppressWarnings("SpellCheckingInspection")
     @GetMapping("/{codigo}")
     public ResponseEntity<Livro> buscarPorId(@PathVariable("codigo") int id) {

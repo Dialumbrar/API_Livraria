@@ -3,68 +3,56 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://apache.org">
 	<modelVersion>4.0.0</modelVersion>
 
-	<!-- PROJETO PAI: Configura o ecossistema para a última versão estável 4.1.2 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>4.1.2</version>
-		<relativePath/> <!-- Busca a referência diretamente do repositório remoto do Maven -->
+		<relativePath/>
 	</parent>
 
-	<!-- METADADOS: Definições de identificação exclusiva do seu projeto local -->
 	<groupId>br.senac.sp</groupId>
 	<artifactId>livraria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>livraria</name>
 	<description>Livraria API com Spring Boot</description>
 
-	<!-- PROPRIEDADES: Mantém o JDK 25 configurado para compilar o código Java mais recente -->
 	<properties>
 		<java.version>25</java.version>
 	</properties>
 
-	<!-- DEPENDÊNCIAS: Lista de bibliotecas essenciais para a execução do sistema -->
 	<dependencies>
-		<!-- JPA: Camada de persistência para executar queries e mapeamento de tabelas objeto-relacionais -->
+		<!-- Persistência JPA e Hibernate -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-		<!-- WEB: Habilita a arquitetura REST, mapeamento de URLs, controllers e servidor embutido Tomcat -->
+		<!-- API REST e servidor embutido Tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- VALIDATION: Suporte oficial ao Bean Validation para validar os campos com regras nas Models -->
+		<!-- Validação de dados (@Valid) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
-		<!-- LOMBOK: Biblioteca para autogeração de Getters, Setters e construtores em tempo de compilação -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<!-- SQLITE DRIVER: Driver JDBC para estabelecer a conexão em tempo de execução com o arquivo de banco local -->
+		<!-- Driver JDBC e dialeto Hibernate para SQLite -->
 		<dependency>
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- DIALETO HIBERNATE: Adapta a sintaxe padrão do SQL gerado pelo JPA para o padrão suportado pelo SQLite -->
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-community-dialects</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- TEST: Ferramentas para rodar asserções, testes integrados e unitários no ecossistema Spring -->
+		<!-- Testes automatizados -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -72,10 +60,8 @@
 		</dependency>
 	</dependencies>
 
-	<!-- BUILD: Plugins adicionais utilitários para empacotamento e exportação do arquivo final do projeto -->
 	<build>
 		<plugins>
-			<!-- REPACKAGING: Plugin encarregado de gerar um arquivo JAR executável completo e independente -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

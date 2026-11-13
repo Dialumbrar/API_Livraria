@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class LivroService {
@@ -27,14 +26,5 @@ public class LivroService {
 
     public Optional<Livro> buscarPorId(int id) {
         return livroRepository.findById(id);
-    }
-
-    // Busca todos os livros salvos e extrai os nomes das editoras sem repetição
-    public List<String> listarEditorasUnicas() {
-        return livroRepository.findAll()
-                .stream()
-                .map(Livro::getEditora) // Transforma a lista de Livro em lista de Strings (nomes das editoras)
-                .distinct()             // Filtra e remove itens repetidos do resultado
-                .collect(Collectors.toList());
     }
 }
